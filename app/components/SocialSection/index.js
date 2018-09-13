@@ -9,7 +9,8 @@ import React from 'react';
 // import styled from 'styled-components';
 import axios from 'axios';
 import StackGrid from 'react-stack-grid';
-import InstagramEmbed from 'react-instagram-embed';
+import InstagramLoader from 'components/InstagramLoader';
+// import InstagramEmbed from 'react-instagram-embed';
 
 import Wrapper from './Wrapper';
 import Container from './Container';
@@ -48,12 +49,13 @@ class SocialSection extends React.Component {
       const instaID = regex.exec(post.link)[1];
       const theURL = `https://instagr.am/p/${instaID}`;
       return (
-        <InstagramEmbed
+        <InstagramLoader
           key={i.toString()}
           url={theURL}
           maxWidth={438}
           hideCaption={false}
           containerTagName="div"
+          injectScript
         />
       );
     });

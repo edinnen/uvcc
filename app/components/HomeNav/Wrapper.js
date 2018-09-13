@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   transition: background-image 1s ease-in-out;
+  position: relative;
   height: 100%;
   width: 100%;
   &:before {
