@@ -1,0 +1,27 @@
+query getData {
+  pages {
+    title
+    slug
+    image {
+      url
+    }
+    imageAlign
+    imageAttribution
+    type
+    copy
+    document {
+      title
+      url
+    }
+    externalUrl
+  }
+  executives {
+    name
+    slug
+    bio
+    role
+    image {
+      url
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+
+# Citation.js
+citation.js/npm-debug.log
+citation.js/npm-debug.log.*
+citation.js/node_modules
+citation.js/coverage/
+citation.js/jsdoc/
+citation.js/lib/

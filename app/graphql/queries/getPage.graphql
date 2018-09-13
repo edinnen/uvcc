@@ -1,0 +1,11 @@
+query getPage($slug: String!) {
+  pages(q: $slug) {
+    title
+    slug
+    image {
+      url
+    }
+    copy
+    imageAttribution
+  }
+}
