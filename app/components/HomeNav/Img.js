@@ -7,7 +7,7 @@ const Img = styled.img`
   width: 200px;
   z-index: 50;
   ${mixins.bp.sm.max`
-    width: 100px;
+    width: 70px;
   `};
   @media all and (max-width: 768px) {
     width: 150px;
