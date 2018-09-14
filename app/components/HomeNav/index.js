@@ -214,9 +214,13 @@ class HomeNav extends React.Component {
             />
           </A>
         </SocialIcons>
-        <LogoWrapper>
-          <Img src={Logo} alt="University of Victoria Caving Club" />
-        </LogoWrapper>
+        {!execSelect ? (
+          <LogoWrapper>
+            <Img src={Logo} alt="University of Victoria Caving Club" />
+          </LogoWrapper>
+        ) : (
+          ''
+        )}
         <ArrowWrapper>
           <div style={{ display: 'block', margin: '0 auto', width: 48 }}>
             <IconButton onClick={this.scrollInsta}>
