@@ -22,11 +22,17 @@ import PersonModal from 'components/PersonModal';
 import PreCacheImg from 'react-precache-img';
 import FacebookIcon from 'images/icons/facebook.svg';
 import InstagramIcon from 'images/icons/instagram.svg';
+import Logo from 'images/logo.svg';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import MarkdownWrapper from './MarkdownWrapper';
 
 import Wrapper from './Wrapper';
 import Menu from './Menu';
 import A from './A';
+import SocialIcons from './SocialIcons';
+import Img from './Img';
+import LogoWrapper from './LogoWrapper';
+import ArrowWrapper from './ArrowWrapper';
 
 const styles = () => ({
   paper: {
@@ -76,6 +82,11 @@ class HomeNav extends React.Component {
 
   showExecSelect = () => {
     this.setState({ execSelect: !this.state.execSelect });
+  };
+
+  scrollInsta = () => {
+    const insta = document.getElementById('instagram-grid');
+    insta.scrollIntoView({ behaviour: 'smooth', block: 'start' });
   };
 
   sortPages = () => {
@@ -138,7 +149,9 @@ class HomeNav extends React.Component {
     const { fullScreen, classes, executives } = this.props;
 
     const { copy } = pages.find(x => x.slug === 'suggested-gear');
-    const imageURLs = pages.map(page => page.image.url);
+    const pageImageURLs = pages.map(page => page.image.url);
+    const executiveImageURLs = executives.map(exec => exec.image.url);
+    const imageURLs = [...pageImageURLs, ...executiveImageURLs];
 
     return (
       <Wrapper
@@ -180,12 +193,8 @@ class HomeNav extends React.Component {
           ))}
           {/* eslint-enable */}
         </Menu>
-        <div
-          style={
-            execSelect
-              ? { display: 'none' }
-              : { position: 'relative', top: 50, left: 50 }
-          }
+        <SocialIcons
+          style={execSelect ? { display: 'none' } : { display: 'block' }}
         >
           <A
             href="https://www.facebook.com/groups/UvicCavingClub/"
@@ -204,7 +213,17 @@ class HomeNav extends React.Component {
               alt="Instagram"
             />
           </A>
-        </div>
+        </SocialIcons>
+        <LogoWrapper>
+          <Img src={Logo} alt="University of Victoria Caving Club" />
+        </LogoWrapper>
+        <ArrowWrapper>
+          <div style={{ display: 'block', margin: '0 auto', width: 48 }}>
+            <IconButton onClick={this.scrollInsta}>
+              <ArrowDownward />
+            </IconButton>
+          </div>
+        </ArrowWrapper>
         <Dialog
           fullScreen={fullScreen}
           open={gearOpen}

@@ -66,7 +66,7 @@ class SocialSection extends React.Component {
     const { socialItems } = this.state;
     return (
       <Wrapper>
-        <Container>
+        <Container id="instagram-grid">
           <StackGrid
             gridRef={grid => (this.grid = grid)} // eslint-disable-line
             columnWidth={350}

@@ -22,7 +22,7 @@ function HomeNavWrapper({ data: { pages, executives }, history, hide }) {
   if (pages === undefined) return <LoadingIndicator />;
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
       <HomeNav
         pages={pages}
         executives={executives}

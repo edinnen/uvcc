@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as mixins from 'styles/mixins';
 
 const Menu = styled.div`
   display: ${props => (props.hide ? 'none' : 'flex')};
@@ -6,6 +7,10 @@ const Menu = styled.div`
   position: relative;
   top: 50px;
   left: 50px;
+  ${mixins.bp.sm.max`
+    top: 15px;
+    left: 15px;
+  `}
   color: white;
   text-shadow: 1px 1px 3px black;
   span.navItem {
