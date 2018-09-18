@@ -38,7 +38,11 @@ export class HomePage extends React.Component {
             content="caving uvic university victoria vancouver island caves VICEG vikes rec"
           />
         </Helmet>
-        <HomeNavWrapper history={this.props.history} hide={isGear} />
+        <HomeNavWrapper
+          history={this.props.history}
+          hide={isGear}
+          scrollFunc={this.scrollInsta}
+        />
         <SocialSection />
       </Wrapper>
     );

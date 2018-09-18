@@ -25,7 +25,7 @@
     "build:clean": "rimraf ./build",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "deploy": "npm run build && heroku container:push web -a uvcc-website && heroku container:release web -a uvcc-website",
-    "start": "cross-env NODE_ENV=production node server",
+    "start": "cross-env NODE_ENV=development node server",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:production": "npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
