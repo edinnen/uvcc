@@ -23,7 +23,7 @@ export class ApolloWrapper extends React.Component { // eslint-disable-line reac
   render() {
     return (
       <ApolloProvider client={client}>
-        <div style={{ width: '100%', height: '100%' }}>
+        <div style={{ width: '101%', height: '100%' }}>
           {this.props.children}
         </div>
       </ApolloProvider>
