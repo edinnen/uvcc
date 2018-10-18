@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as mixins from 'styles/mixins';
 
 const Wrapper = styled.div`
   background-image: url(${props => props.imageUrl});
@@ -6,6 +7,9 @@ const Wrapper = styled.div`
   background-position: center;
   transition: background-image 1s ease-in-out;
   position: relative;
+  ${mixins.bp.xs.max`
+    min-height: 568px;
+  `}
   height: 100%;
   width: 100%;
   &:before {

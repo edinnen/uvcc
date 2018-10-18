@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   text-align: center;
   background-color: black;
   margin-top: -19px;
-  padding: 50px 0 50px 0;
+  padding: 130px 0 50px 0;
   min-height: 1400px;
 `;
 

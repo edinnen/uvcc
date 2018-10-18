@@ -43,7 +43,7 @@ class SocialSection extends React.Component {
 
   // Create all the InstagramEmbed elements from each post we got
   getItems() {
-    const { posts } = this.state;
+    const { posts, width } = this.state;
     const out = posts.map((post, i) => {
       const regex = /\/p\/(.*)\//g;
       const instaID = regex.exec(post.link)[1];
@@ -52,7 +52,7 @@ class SocialSection extends React.Component {
         <InstagramLoader
           key={i.toString()}
           url={theURL}
-          maxWidth={438}
+          maxWidth={window.innerWidth > 768 ? 350 : 300}
           hideCaption={false}
           containerTagName="div"
           injectScript
@@ -69,7 +69,7 @@ class SocialSection extends React.Component {
         <Container id="instagram-grid">
           <StackGrid
             gridRef={grid => (this.grid = grid)} // eslint-disable-line
-            columnWidth={350}
+            columnWidth={window.innerWidth > 768 ? 350 : '100%'}
             gutterWidth={40}
             gutterHeight={35}
             style={{ textAlign: 'center', marginBottom: 40 }}

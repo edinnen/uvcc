@@ -50,10 +50,12 @@ class PersonModal extends React.PureComponent {
   render() {
     const { person, fullScreen, classes } = this.props;
 
+    const image = person.image !== null ? person.image.url : null;
+
     return (
       <div>
         <Person onClick={this.handleToggle}>
-          <Img src={person.image.url} />
+          <Img src={image} />
           <div
             style={{
               color: '#ffd600',
@@ -89,7 +91,7 @@ class PersonModal extends React.PureComponent {
           </DialogActions>
           <DialogContent>
             <Person className="embed">
-              <Img src={person.image.url} inModal />
+              <Img src={image} inModal />
               <div
                 style={{
                   color: '#ffd600',

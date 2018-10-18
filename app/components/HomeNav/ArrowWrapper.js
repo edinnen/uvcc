@@ -1,8 +1,12 @@
 import styled from 'styled-components';
+import * as mixins from 'styles/mixins';
 
 const ArrowWrapper = styled.div`
   position: absolute;
-  bottom: 15px;
+  ${mixins.bp.xs.max`
+    bottom: 15px;
+  `}
+  bottom: -65px;
   z-index: 50;
   width: 100%;
   svg {

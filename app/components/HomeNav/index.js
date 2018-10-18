@@ -147,10 +147,11 @@ class HomeNav extends React.Component {
   render() {
     const { pages, selected, initialLoad, execSelect, gearOpen } = this.state;
     const { fullScreen, classes, executives } = this.props;
-
     const { copy } = pages.find(x => x.slug === 'suggested-gear');
     const pageImageURLs = pages.map(page => page.image.url);
-    const executiveImageURLs = executives.map(exec => exec.image.url);
+    const executiveImageURLs = executives.map(
+      exec => (exec.image !== null ? exec.image.url : null),
+    );
     const imageURLs = [...pageImageURLs, ...executiveImageURLs];
 
     return (
@@ -170,7 +171,7 @@ class HomeNav extends React.Component {
         <Menu hide={this.props.hide}>
           {/* eslint-disable */}
           {execSelect ? (
-            <div style={{ display: 'flex', flexDirection: 'column', width: 85 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', width: '90%' }}>
               <Button variant="contained" className={classNames(classes.buttonRoot)} onClick={() => this.showExecSelect()}>Go Back</Button>
               <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {executives.map((exec, i) => <PersonModal person={exec} key={`person-${i.toString()}`} />)} {/* eslint-disable-line */}
@@ -194,7 +195,11 @@ class HomeNav extends React.Component {
           {/* eslint-enable */}
         </Menu>
         <SocialIcons
-          style={execSelect ? { display: 'none' } : { display: 'block' }}
+          style={
+            execSelect
+              ? { display: 'none', zIndex: 100 }
+              : { display: 'block', zIndex: 100 }
+          }
         >
           <A
             href="https://www.facebook.com/groups/UvicCavingClub/"

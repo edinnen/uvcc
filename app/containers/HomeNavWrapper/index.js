@@ -21,8 +21,16 @@ import reducer from './reducer';
 function HomeNavWrapper({ data: { pages, executives }, history, hide }) {
   if (pages === undefined) return <LoadingIndicator />;
 
+  console.log(executives);
+
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+    <div
+      style={
+        window.innerWidth > 768
+          ? { width: '100%', height: '100%', position: 'relative' }
+          : { width: '100%', minHeight: '100%', position: 'relative' }
+      }
+    >
       <HomeNav
         pages={pages}
         executives={executives}
