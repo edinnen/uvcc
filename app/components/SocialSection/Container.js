@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import * as mixins from 'styles/mixins';
+import browser from 'browser-detect';
+
+const type = browser();
+
+let isMobileSafari = false;
+if (type.name === 'safari' && type.mobile) isMobileSafari = true;
 
 const Container = styled.div`
   margin: 0 auto;
@@ -20,7 +26,7 @@ const Container = styled.div`
     width: 100%;
     iframe {
       min-width: unset !important;
-      width: 90% !important;
+      width: ${isMobileSafari ? '65%' : '90%'} !important;
     }
     // span {
     //   transform: unset !important;

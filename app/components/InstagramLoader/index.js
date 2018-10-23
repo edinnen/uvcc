@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InstagramEmbed from 'react-instagram-embed';
+import Container from './Container';
 
 export default class InstagramLoader extends Component {
   loadInstagram = () => {
@@ -43,15 +44,8 @@ export default class InstagramLoader extends Component {
       onFailure = () => {},
     } = this.props;
 
-    const css = {
-      outer: {},
-      blank: {
-        padding: 12,
-      },
-    };
-
     return (
-      <div style={css.outer}>
+      <Container>
         <InstagramEmbed
           key={url}
           url={url}
@@ -64,7 +58,7 @@ export default class InstagramLoader extends Component {
           onAfterRender={onAfterRender}
           onFailure={onFailure}
         />
-      </div>
+      </Container>
     );
   }
 }
