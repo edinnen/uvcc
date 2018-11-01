@@ -36,7 +36,7 @@ const prettyHost = customHost || 'localhost';
 
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
-  res.send('User-agent: *\nDisallow: /');
+  res.send('User-agent: *\nAllow: /');
 });
 
 // Start your app.
