@@ -9,7 +9,7 @@ import React from 'react';
 // import styled from 'styled-components';
 import axios from 'axios';
 import StackGrid from 'react-stack-grid';
-import InstagramLoader from 'components/InstagramLoader';
+// import InstagramLoader from 'components/InstagramLoader';
 // import InstagramEmbed from 'react-instagram-embed';
 
 import Wrapper from './Wrapper';
@@ -24,8 +24,21 @@ class SocialSection extends React.Component {
 
   // Get the instagram data from the API
   componentWillMount() {
+    setTimeout(() => {
+      this.loadInstagram();
+    }, 100);
     axios.get('/api/insta').then(res => {
-      this.setState({ posts: res.data });
+      const posts = res.data.sort(
+        (a, b) =>
+          /* eslint-disable */
+          a.created_time > b.created_time
+            ? 1
+            : b.create_time > a.created_time
+              ? -1
+              : 0,
+          /* eslint-enable */
+      );
+      this.setState({ posts });
       this.getItems();
     });
   }
@@ -41,25 +54,44 @@ class SocialSection extends React.Component {
     clearInterval(this.interval);
   }
 
+  loadInstagram = () => {
+    if (!window.instgrm) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.defer = true;
+      s.src = `https://platform.instagram.com/en_US/embeds.js`;
+      s.id = 'react-instagram-embed-script';
+      s.onload = this.onLoad();
+      const body = document.body || null;
+      if (body) {
+        body.appendChild(s);
+      }
+    }
+  };
+
   // Create all the InstagramEmbed elements from each post we got
   getItems() {
     const { posts } = this.state;
-    const out = posts.map((post, i) => {
+    const socialItems = [];
+    posts.map((post, i) => {
       const regex = /\/p\/(.*)\//g;
       const instaID = regex.exec(post.link)[1];
       const theURL = `https://instagr.am/p/${instaID}`;
-      return (
-        <InstagramLoader
-          key={i.toString()}
-          url={theURL}
-          maxWidth={window.innerWidth > 768 ? 350 : 100}
-          hideCaption={false}
-          containerTagName="div"
-          injectScript
-        />
-      );
+      axios
+        .get(`https://api.instagram.com/oembed?url=${theURL}&omitscript=true`)
+        .then(res => {
+          const newEl = (
+            <span
+              dangerouslySetInnerHTML={{ __html: res.data.html }} // eslint-disable-line
+              key={i.toString()}
+            />
+          );
+          socialItems.push(newEl);
+          this.setState({ socialItems });
+          if (i === posts.length - 1) window.instgrm.Embeds.process();
+        });
+      return true;
     });
-    this.setState({ socialItems: out });
   }
 
   render() {
