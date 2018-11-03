@@ -7,6 +7,7 @@ const Menu = styled.div`
   position: relative;
   top: 50px;
   left: 50px;
+  max-width: 580px;
   ${mixins.bp.sm.max`
     top: 15px;
     left: 15px;
