@@ -28,10 +28,10 @@ export class HomePage extends React.Component {
     return (
       <Wrapper>
         <Helmet>
-          <title>University of Victoria Caving Club</title>
+          <title>University of Victoria Caving Club - UVic Caving</title>
           <meta
             name="description"
-            content="The University of Victoria Caving Club"
+            content="The University of Victoria Caving Club. The UVic Caving Club runs trips on Vancouver Island and teaches students all they need to be proficient underground."
           />
           <meta
             name="keywords"

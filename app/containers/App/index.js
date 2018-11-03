@@ -31,11 +31,11 @@ export default function App() {
       <ApolloWrapper>
         <Helmet
           titleTemplate="%s"
-          defaultTitle="University of Victoria Caving Club"
+          defaultTitle="University of Victoria Caving Club - UVic Caving"
         >
           <meta
             name="description"
-            content="The University of Victoria Caving Club"
+            content="The University of Victoria Caving Club. The UVic Caving Club runs trips on Vancouver Island and teaches students all they need to be proficient underground."
           />
         </Helmet>
         <Switch>
