@@ -1,3 +1,10 @@
+/*
+ * @Author: Ethan Dinnen
+ * @Date:   2018-11-30 20:25:55
+ * @Last Modified by:   Ethan Dinnen
+ * @Last Modified time: 2018-11-30 20:27:41
+ */
+
 import styled from 'styled-components';
 import * as mixins from 'styles/mixins';
 
@@ -7,7 +14,7 @@ const Menu = styled.div`
   position: relative;
   top: 50px;
   left: 50px;
-  max-width: 580px;
+  /* max-width: 580px; */
   ${mixins.bp.sm.max`
     top: 15px;
     left: 15px;
