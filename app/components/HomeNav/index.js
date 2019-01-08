@@ -171,7 +171,7 @@ class HomeNav extends React.Component {
         <Menu hide={this.props.hide}>
           {/* eslint-disable */}
           {execSelect ? (
-            <div style={{ display: 'flex', flexDirection: 'column', width: '90%' }}>
+            <div class="execs" style={{ display: 'flex', flexDirection: 'column', width: '90%' }}>
               <Button variant="contained" className={classNames(classes.buttonRoot)} onClick={() => this.showExecSelect()}>Go Back</Button>
               <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
                 {executives.map((exec, i) => <PersonModal person={exec} key={`person-${i.toString()}`} />)} {/* eslint-disable-line */}

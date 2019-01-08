@@ -14,13 +14,15 @@ const Menu = styled.div`
   position: relative;
   top: 50px;
   left: 50px;
-  /* max-width: 580px; */
   ${mixins.bp.sm.max`
     top: 15px;
     left: 15px;
   `}
   color: white;
   text-shadow: 1px 1px 3px black;
+  .execs {
+    padding-bottom: 50px;
+  }
   span.navItem {
     font-size: 6vmin;
     font-weight: 300;
