@@ -24,7 +24,9 @@ import Wrapper from './Wrapper';
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
   render() {
-    const isGear = this.props.match.params.slug === 'suggested-gear';
+    const isGear =
+      this.props.match.params &&
+      this.props.match.params.slug === 'suggested-gear';
     return (
       <Wrapper>
         <Helmet>

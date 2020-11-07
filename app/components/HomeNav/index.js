@@ -92,23 +92,25 @@ class HomeNav extends React.Component {
   sortPages = () => {
     let { pages } = this.state;
 
-    const schedule = pages.find(x => x.slug === 'semesterly-caving-schedule');
-    const executives = pages.find(x => x.slug === 'meet-our-executives');
-    const suggested = pages.find(x => x.slug === 'suggested-gear');
+    const schedule = pages.find(
+      x => x && x.slug === 'semesterly-caving-schedule',
+    );
+    const executives = pages.find(x => x && x.slug === 'meet-our-executives');
+    const suggested = pages.find(x => x && x.slug === 'suggested-gear');
 
-    const bcsf = pages.find(x => x.slug === 'bcsf');
-    const nonUvic = pages.find(x => x.slug === 'non-uvic');
-    const rescue = pages.find(x => x.slug === 'rescue');
+    const bcsf = pages.find(x => x && x.slug === 'bcsf');
+    const nonUvic = pages.find(x => x && x.slug === 'non-uvic');
+    const rescue = pages.find(x => x && x.slug === 'rescue');
 
     pages = pages.filter(x => {
       let bool = true;
       if (
-        x.slug === 'meet-our-executives' ||
-        x.slug === 'semesterly-caving-schedule' ||
-        x.slug === 'suggested-gear' ||
-        x.slug === 'bcsf' ||
-        x.slug === 'non-uvic' ||
-        x.slug === 'rescue'
+        (x && x.slug === 'meet-our-executives') ||
+        (x && x.slug === 'semesterly-caving-schedule') ||
+        (x && x.slug === 'suggested-gear') ||
+        (x && x.slug === 'bcsf') ||
+        (x && x.slug === 'non-uvic') ||
+        (x && x.slug === 'rescue')
       )
         bool = !bool;
       return bool;
@@ -147,7 +149,7 @@ class HomeNav extends React.Component {
   render() {
     const { pages, selected, initialLoad, execSelect, gearOpen } = this.state;
     const { fullScreen, classes, executives } = this.props;
-    const { copy } = pages.find(x => x.slug === 'suggested-gear');
+    const { copy } = pages.find(x => x && x.slug === 'suggested-gear');
     const pageImageURLs = pages.map(page => page.image.url);
     const executiveImageURLs = executives.map(
       exec => (exec.image !== null ? exec.image.url : null),
@@ -159,7 +161,7 @@ class HomeNav extends React.Component {
         imageUrl={
           !this.props.hide
             ? pages[selected].image.url
-            : pages.find(x => x.slug === 'suggested-gear').image.url
+            : pages.find(x => x && x.slug === 'suggested-gear').image.url
         }
       >
         {pages[selected].imageAttribution !== null ? (
