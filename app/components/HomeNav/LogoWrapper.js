@@ -8,7 +8,7 @@ const LogoWrapper = styled.div`
     position: absolute;
     top: unset;
     right: unset;
-    bottom: 100px;
+    bottom: 300px;
     width: 100%;
   }
 `;

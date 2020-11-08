@@ -8,9 +8,8 @@ const Wrapper = styled.div`
   transition: background-image 1s ease-in-out;
   position: relative;
   ${mixins.bp.xs.max`
-    min-height: 568px;
-  `}
-  height: 100%;
+    min-height: 893px;
+  `} height: 100%;
   width: 100%;
   &:before {
     content: '';

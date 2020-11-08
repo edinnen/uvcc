@@ -8,7 +8,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import classNames from 'classnames';
-// import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -23,7 +22,6 @@ import PreCacheImg from 'react-precache-img';
 import FacebookIcon from 'images/icons/facebook.svg';
 import InstagramIcon from 'images/icons/instagram.svg';
 import Logo from 'images/logo.svg';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import MarkdownWrapper from './MarkdownWrapper';
 
 import Wrapper from './Wrapper';
@@ -32,7 +30,6 @@ import A from './A';
 import SocialIcons from './SocialIcons';
 import Img from './Img';
 import LogoWrapper from './LogoWrapper';
-import ArrowWrapper from './ArrowWrapper';
 
 const styles = () => ({
   paper: {
@@ -228,13 +225,6 @@ class HomeNav extends React.Component {
         ) : (
           ''
         )}
-        <ArrowWrapper>
-          <div style={{ display: 'block', margin: '0 auto', width: 48 }}>
-            <IconButton onClick={this.scrollInsta}>
-              <ArrowDownward />
-            </IconButton>
-          </div>
-        </ArrowWrapper>
         <Dialog
           fullScreen={fullScreen}
           open={gearOpen}

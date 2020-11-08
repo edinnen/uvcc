@@ -11,7 +11,6 @@ import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import HomeNavWrapper from 'containers/HomeNavWrapper';
-import SocialSection from 'components/SocialSection/Loadable';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -45,7 +44,6 @@ export class HomePage extends React.Component {
           hide={isGear}
           scrollFunc={this.scrollInsta}
         />
-        <SocialSection />
       </Wrapper>
     );
   }
